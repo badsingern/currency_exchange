@@ -1,0 +1,19 @@
+{
+  "name": "currency_exchange",
+  "version": "1.0.0",
+  "description": "currency exchange exercise",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server"
+  },
+  "author": "Arnoldas Tamosiunas",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "node": "^15.3.0",
+    "nodemon": "^2.0.6"
+  }
+}
