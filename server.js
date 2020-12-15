@@ -3,12 +3,12 @@ import dotEnv from "dotenv";
 import router from "./routes/exchange.js";
 import errorHandler from "./middleware/error.js";
 
-const app = express();
-const PORT = process.env.PORT || 5000;
-
 dotEnv.config({path: './config/config.env'});
 
-// Mount routers
+const app = express();
+const PORT = process.env.PORT || 4000;
+
+// Mount router
 app.use('/api/v1', router);
 
 // Mount Error Handler
