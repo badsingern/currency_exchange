@@ -1,7 +1,9 @@
 // @desc   Get currency exchange
-// @route  GET /api/v1/:from/:to
+// @route  GET /api/v1/route
 // @access Public
-const currencyExchangeController = async (req, res, next) => {
+import {ApiResponse} from "../utils/ApiResponse.js";
+
+const getCurrencyExchange = async (req, res, next) => {
     const baseAmount = req.query.base_amount;
     const quoteCurrency = req.query.quote_currency;
     const exchangeRate = req.exchangeRate;
@@ -9,13 +11,8 @@ const currencyExchangeController = async (req, res, next) => {
     const roundedExchangeRate = parseFloat(exchangeRate.rates[quoteCurrency].toFixed(3));
     const quoteAmount = Math.floor(baseAmount * roundedExchangeRate);
 
-    const responseMessage = {
-        exchange_rate: roundedExchangeRate,
-        quote_amount: quoteAmount
-    };
-
-    res.body = responseMessage;
+    res.body = new ApiResponse(roundedExchangeRate, quoteAmount);
     next();
 }
 
-export default currencyExchangeController;
+export default getCurrencyExchange;
